@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <%- include('table', { logindata: logindata}) %>
+    <hr>
+    <input type="button" onclick="location.href='login'"value="ログイン画面へ">
+  </body>
+</html>

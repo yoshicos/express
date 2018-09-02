@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+  $("#exec").click(function(){
+    $.ajax({
+      type: 'POST',
+      url: '/api',
+      data: {
+        url   : $("#url").val()
+      },
+      dataType: 'json' //データをjson形式で飛ばす
+    })
+    
+    .done(function(data) { //ajax送信に成功した場合の処理
+      $('#result').text(JSON.stringify(data,undefined,1));
+    })
+    .fail(function() {     //ajax送信に失敗した場合の処理
+      alert('error');
+    });
+  });
+});
+</script>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <form action="/" method="post">
+      url:<input type="text" size="80" name="url" id="url" value="<%= data.url %>">
+      <input type="button" value="Push Button!" id="exec">
+    </form>
+    <pre id="result"></pre>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+<%# テーブル表示部 %>
+<% if(logindata){ %>
+<table border="1">
+  <thead><tr>
+    <% for (var item in logindata[0]){ %>
+      <th><%= item %></th>
+    <% } %>
+  </tr></thead>
+  <tbody>
+  <% for(var rowcnt in logindata){ %>
+    <tr>
+      <% for (var item in logindata[rowcnt]){ %>
+        <td><%= logindata[rowcnt][item]  %></td>
+      <% } %>
+    </tr>
+  <% } %>
+</tbody></table>
+<% } %>
